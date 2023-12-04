@@ -82,6 +82,7 @@ See [`main.tf`](https://github.com/bschaatsbergen/atlantis-on-gcp-vm/tree/master
 - Provisioning the Google Cloud Managed SSL certificate can take up to 25 minutes after the `terraform apply` has finished.
 
 - If you bring your own Docker image (*not using any Atlantis image as base image*), be sure to create an Atlantis user using a uid (user ID) of 100.
+- As per Docker spec, the base image's `CMD` will be overridden when you define a new `ENTRYPOINT` through the `command` variable: <https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact>
 
 ### After it's successfully deployed
 
