@@ -45,6 +45,8 @@ This Terraform module deploys various resources to run Atlantis on Google Comput
 
 - **Confidential VM** - A Confidential VM is a type of Compute Engine VM that ensures that your data and applications stay private and encrypted even while in use. You can use a Confidential VM as part of your security strategy so you do not expose sensitive data or workloads during processing. Note that Confidential VM [does not support live migration](https://cloud.google.com/confidential-computing/confidential-vm/docs/error-messages#live_migration_isnt_supported), so if this feature is enabled, `onHostMaintenance` will be set to `TERMINATE`.
 
+- **Scale to zero** - Use [scaling schedules](https://cloud.google.com/compute/docs/autoscaler/scaling-schedules#schedule_configuration_options) to allow scaling to zero outside of business hours. Useful to minimize costs.
+
 ## Prerequisites
 
 This module expects that you already own or create the below resources yourself.
@@ -64,6 +66,7 @@ Here are some examples to choose from. Look at the prerequisites above to find o
 - [Secure Environment Variables](https://github.com/bschaatsbergen/atlantis-on-gcp-vm/tree/master/examples/secure-env-vars)
 - [Cloud Armor](https://github.com/bschaatsbergen/atlantis-on-gcp-vm/tree/master/examples/cloud-armor)
 - [Shared VPC](https://github.com/bschaatsbergen/atlantis-on-gcp-vm/tree/master/examples/shared-vpc)
+- [Scale to zero](https://github.com/bschaatsbergen/atlantis-on-gcp-vm/tree/master/examples/autoscaling)
 
 ```hcl
 module "atlantis" {

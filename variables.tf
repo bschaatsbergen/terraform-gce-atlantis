@@ -96,6 +96,20 @@ variable "shielded_instance_config" {
   }
 }
 
+variable "autoscaling" {
+  description = "Allow the instance group to scale down to zero based on signals"
+  type = object({
+    schedules = list(object({
+      name         = string
+      description  = string
+      schedule     = string
+      time_zone    = string
+      duration_sec = number
+    }))
+  })
+  default = null
+}
+
 variable "domain" {
   type        = string
   description = "Domain to associate Atlantis with and to request a managed SSL certificate for. Without `https://`"
