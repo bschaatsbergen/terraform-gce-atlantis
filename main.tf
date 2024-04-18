@@ -81,6 +81,8 @@ module "container" {
   source  = "terraform-google-modules/container-vm/google"
   version = "3.1.1"
 
+  cos_image_name = element(split("/", var.machine_image), length(split("/", var.machine_image)) - 1)
+
   container = {
     image = var.image
     securityContext = {
